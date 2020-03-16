@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Celery</title>
+</head>
+<body>
+<h1>Django Celery Example</h1>
+  <a href="{% url 'users_list' %}">Users List</a> /
+  <a href="{% url 'generate' %}">Generate Random Users</a>
+  <hr>
+
+  {% if messages %}
+      {% for message in messages %}
+        <p style="color: green">{{ message }}</p>
+      {% endfor %}
+    <hr>
+  {% endif %}
+<ul>
+{% for user in object_list %}
+      <li>{{ user.username }} - {{ user.email }} - {{ user.date_joined }}</li>
+    {% empty %}
+      <li>No users. <a href="{% url 'generate' %}">Generate some random users.</a></li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
